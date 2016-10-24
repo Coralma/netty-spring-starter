@@ -22,12 +22,20 @@ public class JsonResponseHandler extends SimpleChannelInboundHandler<Object> {
 
     private String url;
 
-    private JsonResponseHandler(String url) {
+    /*public JsonResponseHandler(String url) {
         this.url = url;
-    }
+    }*/
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx, Object msg) throws UnsupportedEncodingException {
+        /*FullHttpRequest request = null;
+        String uri = null;
+        if(msg instanceof FullHttpRequest) {
+            request = (FullHttpRequest) msg;
+            uri = request.uri();
+            String data = sanitizeUri(uri);
+            System.out.println(data);
+        }*/
         DataModel dm = new DataModel("Coral", "123");
         Gson gson = new Gson();
         String res = gson.toJson(dm);
